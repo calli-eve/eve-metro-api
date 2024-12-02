@@ -1,0 +1,24 @@
+{
+  "name": "eve-metro-api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "EVEMetro api for Eden Navigator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.4.1",
+    "knex": "^2.4.2",
+    "pg": "^8.11.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
