@@ -13,9 +13,9 @@ The Eve Metro API is a RESTful API designed for the Eden Navigator project, whic
 
 ## Endpoints
 
-### POST /check-access
+### POST /connections
 
-This endpoint checks the access level for a given character, corporation, or alliance.
+This endpoint provides pochven system array with connecting edges.
 
 #### Request Headers
 
@@ -36,7 +36,39 @@ This endpoint checks the access level for a given character, corporation, or all
 - **200 OK**: Access level information and connections if access is granted.
 - **400 Bad Request**: If none of the IDs are provided.
 - **403 Forbidden**: If the API key is invalid.
-- **500 Internal Server Error**: If there is an error processing the request.
+
+#### Response Body
+
+##### Success Response (200 OK)
+
+```json
+{
+  "access": true,
+  "connections": [
+    {
+      "systemId": "string",
+      "systemName": "string",
+      "systemSecurityStatus": -1.0,
+      "shipSize": "string | undefined",
+      "systemEdges": [
+        {
+          "solarSystemIdDst": "string",
+          "solarSystemNameDst": "string",
+          "edgeSource": "trig-map",
+          "signatureSrc": "string",
+          "signatureDst": "string",
+          "wormholeTypeSrc": "string",
+          "wormholeTypeDst": "string",
+          "wormholeMass": "critical | stable",
+          "wormholeEol": "critical | stable",
+          "createdTime": "string",
+          "lastSeenTime": "string"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Setup
 
